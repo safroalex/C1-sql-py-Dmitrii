@@ -5,7 +5,8 @@ CREATE TABLE Trip(
     town_from VARCHAR(30),
     town_to VARCHAR(30),
     time_out DATETIME,
-    time_in DATETIME 
+    time_in DATETIME,
+    FOREIGN KEY (company) REFERENCES Company(id)
 )
 CREATE TABLE company(
     id INT PRIMARY KEY,
@@ -16,6 +17,8 @@ CREATE TABLE Pass_in_trip(
     trip INT,
     passenger INT,
     place VARCHAR(30)
+    FOREIGN KEY (trip) REFERENCES Trip(id),
+    FOREIGN KEY (passenger) REFERENCES Passenger(id)
 )
 CREATE TABLE Passenger(
     id INT PRIMARY KEY,
